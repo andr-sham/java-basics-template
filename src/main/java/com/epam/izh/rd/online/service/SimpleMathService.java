@@ -40,7 +40,11 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int sum(int[] values) {
-        return -1;
+        int sumResult = 0;
+        for (int i : values) {
+            sumResult += i;
+        }
+        return sumResult;
     }
 
     /**
