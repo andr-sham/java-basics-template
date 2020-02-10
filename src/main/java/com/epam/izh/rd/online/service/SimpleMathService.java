@@ -28,8 +28,7 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int value1, int value2) {
-        int result;
-        return result = value1 > value2 ? value1 : value2;
+        return value1 > value2 ? value1 : value2;
     }
 
     /**
@@ -85,7 +84,11 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFactorial(int initialVal) {
-        return -1L;
+        long factorial =1;
+        for (int i = 1 ; i <= initialVal; i++){
+            factorial *= i;
+        }
+        return factorial;
     }
 
     /**
