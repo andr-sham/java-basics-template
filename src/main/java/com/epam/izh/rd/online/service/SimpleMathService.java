@@ -64,7 +64,18 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] getEvenDigits(int[] values) {
-        return new int[]{};
+        int quantityEvenDigital = 0;
+        for (int element : values) {
+            quantityEvenDigital = element % 2 == 0 ? ++quantityEvenDigital : quantityEvenDigital;
+        }
+        int[] evenValues = new int[quantityEvenDigital];
+        int positionEvenValues = 0;
+        for (int element : values) {
+            if (element % 2 == 0){
+                evenValues[positionEvenValues++] = element;
+            }
+        }
+        return evenValues;
     }
 
     /**
