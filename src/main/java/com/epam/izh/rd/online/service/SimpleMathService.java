@@ -103,7 +103,15 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFibonacci(int number) {
-        return -1L;
+        long firstDigital = 0;
+        long secondDigital = 1;
+        long currentDigital;
+        for (int i = 1; i <= number; i++){
+            currentDigital = secondDigital + firstDigital;
+            firstDigital = secondDigital;
+            secondDigital = currentDigital;
+        }
+        return firstDigital;
     }
 
     /**
