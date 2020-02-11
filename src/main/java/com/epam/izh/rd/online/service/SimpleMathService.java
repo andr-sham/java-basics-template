@@ -120,7 +120,19 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] sort(int[] values) {
-        return new int[]{};
+        for (int i = 0; i < values.length; i++){
+            int minElem = values[i];
+            int positionMinElem = i;
+            for (int j = i+1; j < values.length; j++) {
+                if (values[j] < minElem){
+                    minElem = values[j];
+                    positionMinElem = j;
+                }
+            }
+            values[positionMinElem] = values[i];
+            values[i] = minElem;
+        }
+        return values;
     }
 
     /**
