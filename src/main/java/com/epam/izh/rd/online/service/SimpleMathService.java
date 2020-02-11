@@ -143,7 +143,12 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public boolean isPrimary(int number) {
-        return false;
+        for (int i = 2; i <= number/2; i++){
+            if (number % i == 0){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
