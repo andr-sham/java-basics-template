@@ -1,5 +1,7 @@
 package com.epam.izh.rd.online.service;
 
+import java.lang.reflect.Array;
+
 public class SimpleMathService implements MathService {
 
     /**
@@ -63,18 +65,23 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] getEvenDigits(int[] values) {
+        int[] newValues = new int[values.length + 1];
+        System.arraycopy(values, 0, newValues, 0, values.length);
+        newValues[newValues.length - 1] = 1;
         int quantityEvenDigital = 0;
-        for (int element : values) {
-            quantityEvenDigital = element % 2 == 0 ? ++quantityEvenDigital : quantityEvenDigital;
-        }
-        int[] evenValues = new int[quantityEvenDigital];
-        int positionEvenValues = 0;
-        for (int element : values) {
-            if (element % 2 == 0){
-                evenValues[positionEvenValues++] = element;
+        int countOfArray = 0;
+        while (countOfArray < values.length){
+            if (newValues[quantityEvenDigital] % 2 != 0){
+                System.arraycopy(newValues, quantityEvenDigital+1, newValues, quantityEvenDigital, newValues.length - quantityEvenDigital - 1);
+                countOfArray++;
+            }else {
+                quantityEvenDigital++;
+                countOfArray++;
             }
         }
-        return evenValues;
+        values = new int[quantityEvenDigital];
+        System.arraycopy(newValues, 0, values, 0, quantityEvenDigital);
+        return values;
     }
 
     /**
